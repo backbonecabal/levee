@@ -1,0 +1,25 @@
+# cmake
+name: cmake
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: boost
+         run: sudo apt-get ragel -yq
+         # && sudo apt-get install -yq libboost1.65-dev
+      - name: Setup cmake
+        uses: jwlawson/actions-setup-cmake@v1.8
+        with:
+          cmake-version: '3.16.x'
+      - name: cmake 
+        run: |
+        mkdir -p build
+        cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Release
+        cd build
+        make
+        make install 
