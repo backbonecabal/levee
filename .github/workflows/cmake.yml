@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 0 
       - name: boost
         run:  |
-         sudo apt-get ragel -yq
+         sudo apt-get update && sudo apt-get install ragel -yq
          # && sudo apt-get install -yq libboost1.65-dev
       - name: Setup cmake
         uses: jwlawson/actions-setup-cmake@v1.8
