@@ -19,7 +19,6 @@ jobs:
           cmake-version: '3.16.x'
           
       - name: cmake build
-      - name: Install Dependencies
         run: |
           mkdir -p build
           cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Release
