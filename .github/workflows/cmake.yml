@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0 
-      - name: boost
+      - name: Ragel Setup
         run:  |
          sudo apt-get update && sudo apt-get install ragel -yq
          # && sudo apt-get install -yq libboost1.65-dev
@@ -20,7 +20,8 @@ jobs:
         uses: jwlawson/actions-setup-cmake@v1.8
         with:
           cmake-version: '3.16.x'
-          run: |
+      - name: CMake Build
+        run: |
             mkdir -p build
             cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Release
             cd build
